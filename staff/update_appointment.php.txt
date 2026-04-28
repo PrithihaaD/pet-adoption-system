@@ -1,0 +1,30 @@
+<?php
+include '../db_connect.php';
+
+$id = $_POST['id'];
+
+if(isset($_POST['reject'])){
+    $reason = $_POST['reason'];
+    $date = $_POST['new_date'];
+    $time = $_POST['new_time'];
+
+    $conn->query("
+        UPDATE appointments 
+        SET status='Rejected',
+            reason='$reason',
+            reschedule_date='$date',
+            reschedule_time='$time'
+        WHERE id='$id'
+    ");
+
+} else {
+    // APPROVE
+    $conn->query("
+        UPDATE appointments 
+        SET status='Approved'
+        WHERE id='$id'
+    ");
+}
+
+header("Location: manage_appointments.php");
+?>

@@ -1,0 +1,68 @@
+<?php
+session_start();
+include '../db_connect.php';
+
+if($_SESSION['role'] != 'vet'){
+    header("Location: ../login.html");
+}
+
+$appointment_id = $_GET['appointment_id'];
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Treatment</title>
+
+<style>
+body { font-family: Arial; background:#f4f7fb; }
+
+.container {
+    width:400px;
+    margin:40px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+input, textarea {
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+button {
+    width:100%;
+    padding:10px;
+    background:#00b894;
+    color:white;
+    border:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Add Treatment 🩺</h2>
+
+<form action="save_treatment.php" method="POST">
+
+<input type="hidden" name="appointment_id" value="<?= $appointment_id ?>">
+
+<input type="text" name="diagnosis" placeholder="Diagnosis" required>
+
+<textarea name="treatment" placeholder="Treatment" required></textarea>
+
+<textarea name="notes" placeholder="Notes"></textarea>
+
+<button type="submit">Save Treatment</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

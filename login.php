@@ -19,12 +19,15 @@ if ($result->num_rows > 0) {
     $_SESSION['username'] = $username;
     $_SESSION['user_id'] = $row['user_id'];
     $_SESSION['role'] = $row['role'];
-    if($row['role']=='staff'){
+    if($row['role'] == 'adopter'){
+    	header("Location: adopter/dashboard.php");
+    }elseif($row['role'] == 'staff'){
     	header("Location: staff/dashboard.php");
+    }elseif($row['role'] == 'vet'){
+    	header("Location: vet/dashboard.php");
     }else{
-        header("Location:adopter/dashboard.php");
+    	echo "Invalid role";
     }
-    exit();
 
 }else {
     echo "Invalid Login";

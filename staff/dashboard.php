@@ -25,27 +25,51 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'staff') {
     <h1>Staff Dashboard</h1>
     <p>Manage adoption requests and pets</p>
 </div>
+
 <!-- WELCOME TEXT -->
 <div class="welcome">
     Welcome Staff 👋
 </div>
 
-<!-- ACTION CARDS -->
+<!-- FIRST ROW -->
 <div class="category-section">
 
-    <div class="category-container">
+    <div class="category-container" style="
+        display:flex;
+        justify-content:center;
+        gap:20px;
+        flex-wrap:nowrap;
+    ">
 
-        <div class="category-card">
+        <!-- Manage Requests -->
+        <div class="category-card" style="width:220px;">
             <a href="manage_requests.php">
                 <h3>📋 Manage Requests</h3>
                 <p>Approve or reject adoption</p>
             </a>
         </div>
 
-        <div class="category-card">
+        <!-- Add Pet -->
+        <div class="category-card" style="width:220px;">
             <a href="add_pet.php">
                 <h3>➕ Add Pet</h3>
                 <p>Add new pets to system</p>
+            </a>
+        </div>
+
+        <!-- Manage Appointments -->
+        <div class="category-card" style="width:220px;">
+            <a href="manage_appointments.php">
+                <h3>🩺 Manage Appointments</h3>
+                <p>View vet appointments</p>
+            </a>
+        </div>
+
+        <!-- Vet Schedule -->
+        <div class="category-card" style="width:220px;">
+            <a href="view_schedule.php">
+                <h3>📅 Vet Schedule</h3>
+                <p>View vet availability</p>
             </a>
         </div>
 
