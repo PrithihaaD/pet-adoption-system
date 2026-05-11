@@ -83,14 +83,6 @@ $result = mysqli_query($conn, $sql);
 <script>
 function adoptPet(petId){
     window.location.href = "adopt.php?pet_id=" + petId;
-    .then(response => response.text())
-    .then(() => {
-        document.getElementById("popup").style.display = "block";
-
-        setTimeout(() => {
-            document.getElementById("popup").style.display = "none";
-        }, 2000);
-    });
 }
 </script>
 
