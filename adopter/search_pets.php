@@ -82,7 +82,7 @@ $result = mysqli_query($conn, $sql);
 <!-- ✅ JAVASCRIPT (ADDED) -->
 <script>
 function adoptPet(petId){
-    fetch("adopt.php?pet_id=" + petId)
+    window.location.href = "adopt.php?pet_id=" + petId;
     .then(response => response.text())
     .then(() => {
         document.getElementById("popup").style.display = "block";
