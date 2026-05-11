@@ -71,7 +71,9 @@ $result = mysqli_query($conn, $sql);
     <p><b>Shelter:</b> <?php echo $row['shelter_name']; ?></p>
 
     <!-- ✅ ONLY THIS PART CHANGED -->
-    <button onclick="adoptPet(<?php echo $row['pet_id']; ?>)">Adopt</button>
+    <a href="adopt.php?pet_id=<?php echo $row['pet_id']; ?>">
+    <button>Adopt</button>
+    </a>
 
 </div>
 
@@ -79,19 +81,7 @@ $result = mysqli_query($conn, $sql);
 
 </div>
 
-<!-- ✅ JAVASCRIPT (ADDED) -->
-<script>
-function adoptPet(petId){
-        fetch("adopt.php?pet_id=" + petId)
-        .then(response => response.text())
-    .then(() => {
-        document.getElementById("popup").style.display = "block";
 
-        setTimeout(() => {
-            document.getElementById("popup").style.display = "none";
-        }, 2000);
-    });
-}
 </script>
 
 </body>
